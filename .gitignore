@@ -2,6 +2,13 @@
 __pycache__/
 cred.py
 data/20220101/
+data/20220224/
+data/20220225/
 data/russian-troll-tweets-master/
-
+saved_variable/
+images/benin_carte.png
+images/Troll_face_invert.jpg
+images/WordCloud_benin_carte.png
+model deployment with Flask/
+Glove/
 
