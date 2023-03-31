@@ -11,4 +11,6 @@ images/Troll_face_invert.jpg
 images/WordCloud_benin_carte.png
 model deployment with Flask/
 Glove/
+models/
+Resume_parsing.py
 
