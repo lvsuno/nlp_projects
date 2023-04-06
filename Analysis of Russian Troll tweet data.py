@@ -119,9 +119,7 @@ def create_word_cloud(word, mask_image, stop_w, dest_file, col=True):
     :return:
     """
     mask = np.array(Image.open(mask_image).convert("RGB"))
-    mask[mask == 0] = 255
-    # PIL_image = Image.fromarray(mask.astype('uint8'), 'RGB')
-    # PIL_image.show()
+    mask[mask.sum(axis=2) == 0] = 255
     if stop_w is None:
         stpwd = stop_w
     else:
@@ -135,8 +133,6 @@ def create_word_cloud(word, mask_image, stop_w, dest_file, col=True):
                            collocations=col,
                            color_func=ImageColorGenerator(mask)).generate(word)
     # Create coloring from the image
-    # img_colors = ImageColorGenerator(mask)
-    # plt.figure(figsize=[20, 20])
     plt.axis('off')
     plt.tight_layout(pad=0)
     # word_cloud.recolor(color_func=img_colors)

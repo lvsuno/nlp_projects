@@ -5,12 +5,15 @@ data/20220101/
 data/20220224/
 data/20220225/
 data/russian-troll-tweets-master/
+data/poetry_data/
 saved_variable/
 images/benin_carte.png
 images/Troll_face_invert.jpg
+images/fake_news_ctr.png
 images/WordCloud_benin_carte.png
 model deployment with Flask/
 Glove/
 models/
 Resume_parsing.py
+nlp_projects.code-workspace
 
