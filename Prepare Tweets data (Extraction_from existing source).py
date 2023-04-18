@@ -79,7 +79,7 @@ https://archive.org/search?query=twitterstream&page=3&sort=-publicdate
 '''
 
 
-# Uncompress file all 1440 files in ori and put them in dest
+# Uncompress file all files in ori and put them in dest
 def uncompress_gz(ori, desti):
     """
     :param ori: pathlib data referring to the folder where the .gz files are
@@ -114,7 +114,7 @@ def parse_twitter(ori):
             # read json file
             dt = pd.read_json(str(item), lines=True)
             # select twitter in french and english
-            dt = dt[(dt['lang'].isin(['en', 'fr']))]
+            # dt = dt[(dt['lang'].isin(['en', 'fr']))]
             # Detect when the tweet is truncated
             dt_tr_true = dt.loc[dt.truncated == True].copy()
 
@@ -147,11 +147,11 @@ def parse_twitter(ori):
             data = pd.concat([data, df], ignore_index=True)
             print(f"######### {ite} files treated on {len_ori} #####")
             ite += 1
-    dt_en = data[data['lang'] == 'en']
-    dt_fr = data[data['lang'] == 'fr']
-    del data
+    # dt_en = data[data['lang'] == 'en']
+    # dt_fr = data[data['lang'] == 'fr']
+    # del data
 
-    return dt_en, dt_fr
+    return data  # dt_en, dt_fr
 
 
 '''
@@ -162,8 +162,30 @@ dir2 = pathlib.Path('data/20220225/tmp/')
 uncompress_gz(dir1, dir2)
 '''
 
-data_en, data_fr = parse_twitter('data/20220225/tmp/')
+# data_en, data_fr = parse_twitter('data/20220225/tmp/')
 
-data_en.to_json('data/20220225/20220225_en.json')
+### 24
+'''
+dir1 = pathlib.Path('data/20220224')
+pathlib.Path('data/20220224/tmp/').mkdir(parents=True, exist_ok=True)
+dir2 = pathlib.Path('data/20220224/tmp/')
 
-data_fr.to_json('data/20220225/20220225_fr.json')
+# uncompress_gz(dir1, dir2)
+data = parse_twitter('data/20220224/tmp/')
+data.to_json('data/20220224/20220224_full.json')
+'''
+### 25
+'''
+dir1 = pathlib.Path('data/20220225')
+pathlib.Path('data/20220225/tmp/').mkdir(parents=True, exist_ok=True)
+dir2 = pathlib.Path('data/20220225/tmp/')
+
+uncompress_gz(dir1, dir2)
+data = parse_twitter('data/20220225/tmp/')
+data.to_json('data/20220225/20220225_full.json')
+'''
+
+DATA_URL = ('data/20220224/20220224_full.json')
+data = pd.read_json(DATA_URL)
+print(data.shape)
+

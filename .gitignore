@@ -5,6 +5,7 @@ data/20220101/
 data/20220224/
 data/20220225/
 data/russian-troll-tweets-master/
+data/
 data/poetry_data/
 saved_variable/
 images/benin_carte.png
@@ -16,4 +17,6 @@ Glove/
 models/
 Resume_parsing.py
 nlp_projects.code-workspace
+Streamlit_Projects/
+.gitignore
 

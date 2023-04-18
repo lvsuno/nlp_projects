@@ -193,7 +193,7 @@ def get_hashtag_list(dat):
 @dc.log_execution
 def plot_top_emoticon(dat, n=20):
     """
-    Get the mentions in a set of twitter's text
+    Get the emoji in a set of twitter's text
     :param n: Number of most frequent emoticons to plot
     :param dat: data series column
     :return: list of mentions
